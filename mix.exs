@@ -13,8 +13,8 @@ defmodule Combination.Mixfile do
       deps: deps,
       package: package,
       name: "Combination",
-      source_url: "https://github.com/seantanly/elixir-minmaxlist",
-      homepage_url: "https://github.com/seantanly/elixir-minmaxlist",
+      source_url: "https://github.com/seantanly/elixir-combination",
+      homepage_url: "https://github.com/seantanly/elixir-combination",
       description: """
       Elixir library computing simple combination and permuation on Enumerables.
       """,
@@ -46,7 +46,7 @@ defmodule Combination.Mixfile do
 
   defp docs do
     [
-      source_ref: "v#{@version}", 
+      source_ref: "v#{@version}",
       main: "Combination",
       # logo: "path/to/logo.png",
       extras: ~w(CHANGELOG.md README.md LICENSE.md)
