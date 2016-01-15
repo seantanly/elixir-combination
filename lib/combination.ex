@@ -2,11 +2,12 @@ defmodule Combination do
   @moduledoc """
   Provide a set of algorithms to generate combinations and permutations.
 
-  For non-distinct elements in the source collection, simply pipe the result through `Enum.uniq/1` to remove duplicates.
+  For source collection containing non-distinct elements, pipe the resultant list through `Enum.uniq/1`
+  to remove duplicate elements.
   """
 
   @doc """
-  Generate combinations of based on given collection.
+  Generate combinations based on given collection.
 
   ## Examples
 
@@ -23,23 +24,6 @@ defmodule Combination do
     else
       do_combine(list, list_length, k, [], [])
     end
-  end
-
-  @doc """
-  Generate k1..k2 combinations of based on given collection, where k2 > k1.
-
-  ## Examples
-
-      iex> 1..3 |> Combination.combine(1..2)
-      [[1], [2], [3], [3, 2], [3, 1], [2, 1]]
-
-      iex> 1..3 |> Combination.combine(2..3)
-      [[3, 2], [3, 1], [2, 1], [3, 2, 1]]
-
-  """
-  @spec combine(Enum.t, Range.t) :: [list]
-  def combine(collection, k1..k2) when k2 >= k1 do
-    Enum.flat_map(k1..k2, &combine(collection, &1))
   end
 
   defp do_combine(_list, _list_length, 0, _pick_acc, _acc), do: [[]]

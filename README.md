@@ -5,7 +5,7 @@ Combination
 
 Elixir library to generate combinations and permutations from `Enumerable`.
 
-See [Examples](#Examples).
+See [Examples](#examples).
 
 
 ## Documentation
@@ -32,12 +32,6 @@ To generate combinations,
 
 iex> 1..3 |> Combination.combine(2)
 [[3, 2], [3, 1], [2, 1]]
-
-iex> 1..3 |> Combination.combine(1..2)
-[[1], [2], [3], [3, 2], [3, 1], [2, 1]]
-
-iex> 1..3 |> Combination.combine(2..3)
-[[3, 2], [3, 1], [2, 1], [3, 2, 1]]
 
 ```
 
