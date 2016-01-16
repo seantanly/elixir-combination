@@ -63,29 +63,33 @@
 <a href="https://hex.pm/packages/combination"><img src="http://img.shields.io/hexpm/v/combination.svg?style=flat" alt="Hex.pm Version"/></a></p>
 <p>Elixir library to generate combinations and permutations from <code class="inline">Enumerable</code>.</p>
 <p>See <a href="#Examples">Examples</a>.</p>
-<h2 id="Documentation"> Documentation</h2><p>API documentation is available at <a href="http://hexdocs.pm/combination"><a href="http://hexdocs.pm/combination">http://hexdocs.pm/combination</a></a></p>
-<h2 id="Adding-Combination-To-Your-Project"> Adding Combination To Your Project</h2><p>To use Combination with your projects, edit your <code class="inline">mix.exs</code> file and add it as a dependency:</p>
+<h2 id="documentation"> Documentation</h2><p>API documentation is available at <a href="http://hexdocs.pm/combination"><a href="http://hexdocs.pm/combination">http://hexdocs.pm/combination</a></a></p>
+<h2 id="adding-combination-to-your-project"> Adding Combination To Your Project</h2><p>To use Combination with your projects, edit your <code class="inline">mix.exs</code> file and add it as a dependency:</p>
 <pre><code class="elixir">defp deps do
   [
     {:combination, &quot;~&gt; x.x.x&quot;},
   ]
 end</code></pre>
-<h2 id="Examples"> Examples</h2><p>To generate combinations,</p>
-<pre><code class="elixir">iex&gt; 1..3 |&gt; Combination.combine(2)
+<h2 id="examples"> Examples</h2><p>To generate combinations,</p>
+<pre><code class="elixir">
+iex&gt; 1..3 |&gt; Combination.combine(2)
 [[3, 2], [3, 1], [2, 1]]
 
 iex&gt; 1..3 |&gt; Combination.combine(1..2)
 [[1], [2], [3], [3, 2], [3, 1], [2, 1]]
 
 iex&gt; 1..3 |&gt; Combination.combine(2..3)
-[[3, 2], [3, 1], [2, 1], [3, 2, 1]]</code></pre>
+[[3, 2], [3, 1], [2, 1], [3, 2, 1]]
+</code></pre>
 <p>To generate permutations,</p>
-<pre><code class="elixir">iex&gt; 1..3 |&gt; Combination.permutate
+<pre><code class="elixir">
+iex&gt; 1..3 |&gt; Combination.permutate
 [[1, 2, 3], [2, 1, 3], [3, 1, 2], [1, 3, 2], [2, 3, 1], [3, 2, 1]]
 
 iex&gt; 1..3 |&gt; Combination.permutate(fn p -&gt; Enum.at(p, 0) == 1 end)
-[[1, 2, 3], [1, 3, 2]]</code></pre>
-<h2 id="LICENSE"> LICENSE</h2><p>This software is licensed under <a href="LICENSE.md">MIT License</a>.</p>
+[[1, 2, 3], [1, 3, 2]]
+</code></pre>
+<h2 id="license"> LICENSE</h2><p>This software is licensed under <a href="LICENSE.md">MIT License</a>.</p>
 
     <footer class="footer">
       <p>
