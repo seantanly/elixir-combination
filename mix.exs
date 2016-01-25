@@ -29,8 +29,8 @@ defmodule Combination.Mixfile do
   defp deps do
     [
       {:credo, ">= 0.0.0", only: [:dev, :test]},
-      {:earmark, "== 0.1.19", only: :docs},
-      {:ex_doc, ">= 0.10.0", only: :docs},
+      {:earmark, ">= 0.2.1", only: :docs},
+      {:ex_doc, ">= 0.11.4", only: :docs},
     ]
   end
 
