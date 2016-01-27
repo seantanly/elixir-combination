@@ -16,7 +16,7 @@ defmodule Combination.Mixfile do
       source_url: "https://github.com/seantanly/elixir-combination",
       homepage_url: "https://github.com/seantanly/elixir-combination",
       description: """
-      Elixir library computing simple combination and permuation on Enumerables.
+      Elixir library computing simple combination and permutation on Enumerables.
       """,
       docs: docs,
     ]
