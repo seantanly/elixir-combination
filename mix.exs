@@ -10,15 +10,15 @@ defmodule Combination.Mixfile do
       elixir: "~> 1.2",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
-      deps: deps,
-      package: package,
+      deps: deps(),
+      package: package(),
       name: "Combination",
       source_url: "https://github.com/seantanly/elixir-combination",
       homepage_url: "https://github.com/seantanly/elixir-combination",
       description: """
       Elixir library computing simple combination and permutation on Enumerables.
       """,
-      docs: docs,
+      docs: docs(),
     ]
   end
 
@@ -29,8 +29,7 @@ defmodule Combination.Mixfile do
   defp deps do
     [
       {:credo, ">= 0.0.0", only: [:dev, :test]},
-      {:earmark, ">= 0.2.1", only: :docs},
-      {:ex_doc, ">= 0.11.4", only: :docs},
+      {:ex_doc, ">= 0.0.0", only: :docs},
     ]
   end
 
@@ -40,7 +39,7 @@ defmodule Combination.Mixfile do
       licenses: ["MIT"],
       links: %{github: "https://github.com/seantanly/elixir-combination"},
       files: ~w(lib test) ++
-             ~w(CHANGELOG.md LICENSE mix.exs README.md),
+             ~w(CHANGELOG.md LICENSE.md mix.exs README.md),
     ]
   end
 
