@@ -29,6 +29,7 @@ defmodule Combination.Mixfile do
   defp deps do
     [
       {:credo, ">= 0.0.0", only: [:dev, :test]},
+      {:dialyxir, "~> 0.3", only: [:dev]},
       {:ex_doc, ">= 0.0.0", only: :docs},
     ]
   end
