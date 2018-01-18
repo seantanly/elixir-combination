@@ -15,10 +15,11 @@ defmodule Combination do
       [[3, 2], [3, 1], [2, 1]]
 
   """
-  @spec combine(Enum.t, non_neg_integer) :: [list]
+  @spec combine(Enum.t(), non_neg_integer) :: [list]
   def combine(collection, k) when is_integer(k) and k >= 0 do
     list = Enum.to_list(collection)
     list_length = Enum.count(list)
+
     if k > list_length do
       raise Enum.OutOfBoundsError
     else
@@ -27,7 +28,9 @@ defmodule Combination do
   end
 
   defp do_combine(_list, _list_length, 0, _pick_acc, _acc), do: [[]]
-  defp do_combine(list, _list_length, 1, _pick_acc, _acc), do: list |> Enum.map(&([&1])) # optimization
+  # optimization
+  defp do_combine(list, _list_length, 1, _pick_acc, _acc), do: list |> Enum.map(&[&1])
+
   defp do_combine(list, list_length, k, pick_acc, acc) do
     list
     |> Stream.unfold(fn [h | t] -> {{h, t}, t} end)
@@ -35,14 +38,17 @@ defmodule Combination do
     |> Enum.reduce(acc, fn {x, sublist}, acc ->
       sublist_length = Enum.count(sublist)
       pick_acc_length = Enum.count(pick_acc)
+
       if k > pick_acc_length + 1 + sublist_length do
-        acc # insufficient elements in sublist to generate new valid combinations
+        # insufficient elements in sublist to generate new valid combinations
+        acc
       else
         new_pick_acc = [x | pick_acc]
         new_pick_acc_length = pick_acc_length + 1
+
         case new_pick_acc_length do
           ^k -> [new_pick_acc | acc]
-          _  -> do_combine(sublist, sublist_length, k, new_pick_acc, acc)
+          _ -> do_combine(sublist, sublist_length, k, new_pick_acc, acc)
         end
       end
     end)
@@ -63,16 +69,17 @@ defmodule Combination do
       [[1, 2, 3], [1, 3, 2]]
 
   """
-  @spec permutate(Enum.t, (list -> as_boolean(term))) :: [list]
+  @spec permutate(Enum.t(), (list -> as_boolean(term))) :: [list]
   def permutate(collection, filter \\ fn _p -> true end) do
     collection
-    |> Enum.to_list
+    |> Enum.to_list()
     |> do_permutate(filter, [], [])
   end
 
   defp do_permutate([], filter, pick_acc, acc) do
     if filter.(pick_acc), do: [pick_acc | acc], else: acc
   end
+
   defp do_permutate(list, filter, pick_acc, acc) do
     list
     |> Stream.unfold(fn [h | t] -> {{h, t}, t ++ [h]} end)

@@ -8,8 +8,8 @@ defmodule Combination.Mixfile do
       app: :combination,
       version: @version,
       elixir: "~> 1.2",
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
       name: "Combination",
@@ -18,7 +18,7 @@ defmodule Combination.Mixfile do
       description: """
       Elixir library computing simple combination and permutation on Enumerables.
       """,
-      docs: docs(),
+      docs: docs()
     ]
   end
 
@@ -30,7 +30,7 @@ defmodule Combination.Mixfile do
     [
       {:credo, ">= 0.0.0", only: [:dev, :test]},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:ex_doc, ">= 0.0.0", only: [:dev], runtime: false},
+      {:ex_doc, ">= 0.0.0", only: [:dev], runtime: false}
     ]
   end
 
@@ -39,8 +39,7 @@ defmodule Combination.Mixfile do
       maintainers: ["Sean Tan Li Yang"],
       licenses: ["MIT"],
       links: %{github: "https://github.com/seantanly/elixir-combination"},
-      files: ~w(lib test) ++
-             ~w(CHANGELOG.md LICENSE.md mix.exs README.md),
+      files: ~w(lib test) ++ ~w(mix.exs CHANGELOG.md LICENSE.md README.md)
     ]
   end
 
@@ -49,7 +48,7 @@ defmodule Combination.Mixfile do
       source_ref: "v#{@version}",
       main: "Combination",
       # logo: "path/to/logo.png",
-      extras: ~w(CHANGELOG.md README.md LICENSE.md)
+      extras: ~w(CHANGELOG.md LICENSE.md README.md)
     ]
   end
 end
